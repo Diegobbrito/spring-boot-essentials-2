@@ -5,6 +5,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import br.com.gft.domain.Anime;
@@ -20,8 +22,8 @@ public class AnimeService {
 	@Autowired
 	private AnimeRepository animeRepository;
 
-	public List<Anime> listAll() {
-		return animeRepository.findAll();
+	public Page<Anime> listAll(Pageable page) {
+		return animeRepository.findAll(page);
 	}
 	
 	public List<Anime> findByName(String name) {
