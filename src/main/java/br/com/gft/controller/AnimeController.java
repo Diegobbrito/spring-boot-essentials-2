@@ -1,6 +1,5 @@
 package br.com.gft.controller;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -22,24 +21,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.gft.domain.Anime;
 import br.com.gft.service.AnimeService;
-import br.com.gft.util.Utils;
-import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("animes")
-@Slf4j
 public class AnimeController {
 
 	@Autowired
-	private Utils utils;
-
-	@Autowired
 	private AnimeService animeService;
-
+	
 	@GetMapping()
-	public ResponseEntity<Page<Anime>> listAll(Pageable page) {
-		log.info("Formatting the date {}", utils.formatLocalDateTimeToDatavaseStyle(LocalDateTime.now()));
-		return ResponseEntity.ok(animeService.listAll(page));
+	public ResponseEntity<Page<Anime>> listAll(Pageable pageable) {
+		return ResponseEntity.ok(animeService.listAll(pageable));
 	}
 
 	@GetMapping("/{id}")

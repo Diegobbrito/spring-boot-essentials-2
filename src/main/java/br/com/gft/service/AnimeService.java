@@ -22,8 +22,8 @@ public class AnimeService {
 	@Autowired
 	private AnimeRepository animeRepository;
 
-	public Page<Anime> listAll(Pageable page) {
-		return animeRepository.findAll(page);
+	public Page<Anime> listAll(Pageable pageable) {
+		return animeRepository.findAll(pageable);
 	}
 	
 	public List<Anime> findByName(String name) {
