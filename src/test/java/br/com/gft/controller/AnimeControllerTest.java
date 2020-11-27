@@ -79,8 +79,8 @@ public class AnimeControllerTest {
 	}
 
 	@Test
-	@DisplayName("findByName returns a pageable list of animes when successful")
-	public void findByName_ReturnListOfAnimesInsidePegeObject_WhenSuccessful() {
+	@DisplayName("findByName returns a list of animes when successful")
+	public void findByName_ReturnListOfAnimes_WhenSuccessful() {
 
 		String expectedName = AnimeCreator.createValidAnime().getName();
 
